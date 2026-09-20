@@ -21,9 +21,10 @@ st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-    html, body, [class*="css"] {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        color: #1E293B;
+    /* Force global high-contrast dark text */
+    html, body, [class*="css"], .stMarkdown, p, span, label, h1, h2, h3, h4, h5, h6 {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        color: #0F172A !important;
     }
 
     /* Hide Deploy button, Streamlit hamburger menu, and header decorations */
@@ -44,77 +45,109 @@ st.markdown("""
         visibility: hidden !important;
     }
 
+    /* Main background */
     .stApp {
-        background-color: #F8FAFC;
+        background-color: #F8FAFC !important;
     }
 
+    /* Top App Bar */
     .top-navbar {
-        background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%);
+        background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%) !important;
         padding: 22px 32px;
         border-radius: 14px;
-        color: white;
+        color: white !important;
         margin-bottom: 24px;
         box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
     }
-    .top-navbar h1 {
+    .top-navbar h1, .top-navbar p, .top-navbar span {
         color: #FFFFFF !important;
-        font-size: 26px;
-        font-weight: 700;
-        margin: 0;
-        letter-spacing: -0.5px;
     }
     .top-navbar p {
-        color: #94A3B8;
-        font-size: 14px;
-        margin: 4px 0 0 0;
+        color: #94A3B8 !important;
     }
 
+    /* CDSS Warning Banner */
     .cdss-alert {
-        background: #EFF6FF;
-        border-left: 4px solid #2563EB;
+        background: #EFF6FF !important;
+        border-left: 4px solid #2563EB !important;
         border-radius: 10px;
         padding: 12px 18px;
         font-size: 13px;
-        color: #1E40AF;
+        color: #1E40AF !important;
         margin-bottom: 24px;
     }
+    .cdss-alert strong {
+        color: #1E40AF !important;
+    }
 
+    /* Card Panels */
     .med-card {
-        background: #FFFFFF;
-        border: 1px solid #E2E8F0;
+        background: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
         border-radius: 16px;
         padding: 24px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
         margin-bottom: 20px;
     }
 
+    /* Protocol Item styling */
     .protocol-item {
-        background: #F8FAFC;
-        border: 1px solid #E2E8F0;
+        background: #F8FAFC !important;
+        border: 1px solid #E2E8F0 !important;
         border-radius: 10px;
         padding: 12px 16px;
         margin-bottom: 10px;
         font-size: 13.5px;
+        color: #1E293B !important;
+    }
+    .protocol-item strong {
+        color: #0F172A !important;
     }
 
+    /* Tabs styling - unselected */
     .stTabs [data-baseweb="tab-list"] {
         gap: 10px;
-        background-color: transparent;
+        background-color: transparent !important;
     }
     .stTabs [data-baseweb="tab"] {
         height: 44px;
-        background-color: #FFFFFF;
-        border: 1px solid #E2E8F0;
+        background-color: #FFFFFF !important;
+        border: 1px solid #CBD5E1 !important;
         border-radius: 10px;
         padding: 8px 20px;
         font-weight: 600;
-        color: #64748B;
+        color: #334155 !important;
         font-size: 14px;
     }
+    /* Tab label text fix */
+    .stTabs [data-baseweb="tab"] div, .stTabs [data-baseweb="tab"] p {
+        color: #334155 !important;
+    }
+    
+    /* Tabs styling - selected */
     .stTabs [aria-selected="true"] {
         background-color: #2563EB !important;
-        color: #FFFFFF !important;
         border-color: #2563EB !important;
+    }
+    .stTabs [aria-selected="true"] div, .stTabs [aria-selected="true"] p {
+        color: #FFFFFF !important;
+    }
+
+    /* Fix form widgets (selectboxes, inputs) background and font colors */
+    div[data-baseweb="select"] > div, 
+    div[data-baseweb="base-input"] > div,
+    input {
+        background-color: #FFFFFF !important;
+        color: #0F172A !important;
+        border-color: #CBD5E1 !important;
+    }
+
+    /* Metric values and labels */
+    [data-testid="stMetricValue"] {
+        color: #0F172A !important;
+    }
+    [data-testid="stMetricLabel"] p {
+        color: #475569 !important;
     }
 </style>
 """, unsafe_allow_html=True)
